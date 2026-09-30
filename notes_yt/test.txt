@@ -1,0 +1,32 @@
+steps:
+    1. create new spec.test file
+    2. import palywright module to our script
+    3. create test function
+        a. playwright provides a test function to declare tests & expect function for assertions
+        b. syntax:
+            test('title of test', ()=>{
+                
+            })
+    4. anonymous arrow function 
+
+locators:
+    1. page.getByRole()             ->      role (button, textbox, checkbox, etc.)
+    2. page.getByText()             ->      visible text
+    3. page.getByLabel()            ->      associated label text
+    4. page.getByPlaceholder()      ->      placeholder text
+    5. page.getByAltText()          ->      image alt text
+    6. page.getByTitle()            ->      title attribute
+    7. page.getByTestId()           ->      test id attribute   
+
+
+other locators: page.locator('')
+    1. #id                          ->      (self-explanatory)
+    2. tagname                      ->      (self-explanatory)
+    3. .classname                   ->      (self-explanatory)
+    4. [attribute="value"]          ->      attribute
+    5. #id.classnametagname         ->      multiple locators
+    6. xpath="value"                ->      identify usgin its xpath
+    7. :text("desiredtext")         ->      contains desired
+    8. :has-text("desiredtext")     ->      container that has text
+    9. :text-is("exact test")       ->      exact desired
+

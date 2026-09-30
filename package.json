@@ -1,0 +1,20 @@
+{
+  "name": "c.-playwright-self-study",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Hello.js",
+  "scripts": {
+    "runner1": "npx playwright test tests/if_has_baseURL.spec.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.3"
+  },
+  "dependencies": {
+    "typescript": "^7.0.2"
+  }
+}

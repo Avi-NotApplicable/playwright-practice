@@ -1,0 +1,45 @@
+defineConfig:
+    testDir                         ->      test folder
+    fullyParallel:                  ->      how to run tests
+        true    ->  tests at the same time
+        false   ->  tests one-by-one
+    forbidOnly:                     ->      checks if there are any .only statements
+        true    ->  run if there are no ".only"s
+        false   ->  run, but only those tests will be run
+    retries                         ->      (self-explanatory)
+    workers                         ->      new instance of a browser in incognito
+    reporter                        ->      how the report is generated
+    timeout: XX * XXXX              ->      max runtime for whole test
+    expect: {timeout: XX * XXXX }   ->      max runtime for specific await expect()
+    use:                            ->      global options
+        baseURL                     ->      used for when all tests use same url; await page.goto('/')
+        trace:                      ->      more details about executed tests s.a. snapshotes, timeline, etc; showed like UI mode
+            on                  ->  record trace for every tests
+            off                 ->  don't record trace
+            on-first-retry      ->  self-explanatory
+            retain-on-failure   ->  record for each test, remove from successful test run
+    projects:                       
+        name                        ->      (self-explanatory)
+        use                         ->      project-specific; devices available (browser only)
+
+other terms:
+    .only                           ->      "do only this"
+    CI (Continuous Integration)     ->      installs dependencies, builds app, runs tests in a server
+    !!process.env.CI                ->      not(not(process with environment variable named CI))
+    process.env.CI ? X : Y          ->      X if CI, Y if local
+    project-specific                ->      overrides global settings
+    headless:                       ->      basically headed but put inside use 
+        true    ->  normal run
+        false   ->  depends on the global use settings
+    viewport:                       ->      size of a window
+    {
+        width: X,
+        height: Y
+    }
+    .skip                           ->      don't do this test
+
+extra -- package.json: for easier execution:
+    1. go to file
+    2. edit "scripts": {}
+    3. add new: "name_of_script": "npx playwright test ..."
+    4. to execute: npm run name_of_script

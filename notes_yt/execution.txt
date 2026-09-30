@@ -1,0 +1,18 @@
+Running:
+    (run all tests in playwright config)    npx playwright test
+    (run and show process)                  npx playwright test --headed
+    (run on specified project browser)      npx playwright test --project configprojectname
+    (run on multiple project browsers)      npx playwright test --project configprojectname1 --project configprojectname2
+    (run single file)                       npx playwright test filename.spec.ts
+    (run set of files)                      npx playwright test tests/filename1.spec.ts tests/filename2.spec.ts
+    (run files with filename1 filename2)    npx playwright test filename1 filename2
+    (run files with tests named title)      npx playwright test -g "title"
+    (run last test that failed)             npx playwright test --last-failed
+    (run using VSCode extension)            press testing icon, or press the play buttons on specific tests
+    (run using ui mode)                     npx playwright test --ui
+    (override with trace: on)               npx playwright test --trace on
+
+Debugging
+    (debug tests)                           npx playwright --debug
+    (debug only a specific file)            npx playwright test filename.spec.ts--debug
+    (debug specific file from line 10)      npx playwright test filename.spec.ts:10 --debug
