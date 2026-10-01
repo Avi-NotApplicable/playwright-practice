@@ -9,17 +9,7 @@ steps:
             })
     4. anonymous arrow function 
 
-locators:
-    1. page.getByRole()             ->      role (button, textbox, checkbox, etc.)
-    2. page.getByText()             ->      visible text
-    3. page.getByLabel()            ->      associated label text
-    4. page.getByPlaceholder()      ->      placeholder text
-    5. page.getByAltText()          ->      image alt text
-    6. page.getByTitle()            ->      title attribute
-    7. page.getByTestId()           ->      test id attribute   
-
-
-other locators: page.locator('')
+overview on locators: page.locator(''):
     1. #id                          ->      (self-explanatory)
     2. tagname                      ->      (self-explanatory)
     3. .classname                   ->      (self-explanatory)
@@ -30,3 +20,35 @@ other locators: page.locator('')
     8. :has-text("desiredtext")     ->      container that has text
     9. :text-is("exact test")       ->      exact desired
 
+locators:
+    1. page.getByRole()             ->      role (button, textbox, checkbox, etc.)      ->      interactive elements
+    2. page.getByText()             ->      visible text                                ->      non interactive elements
+        a. contains text        ->      await expect(page.getByText('Welcome, John')).toBeVisible();
+        b. exact match          ->      await expect(page.getByText('Welcome, John', { exact: true })).toBeVisible();
+        c. regular expression   ->      await expect(page.getByText(/welcome, [A-Za-z]+$/i)).toBeVisible();
+    3. page.getByLabel()            ->      associated label text                       ->      form fields
+    4. page.getByPlaceholder()      ->      placeholder text                            ->      form elements w/o labels but has placeholders
+    5. page.getByAltText()          ->      image alt text                              ->      img / area elements
+    6. page.getByTitle()            ->      title attribute                             ->      title attribute
+    7. page.getByTestId()           ->      test id attribute                           ->      if byRole or byText isn't working; data-testid 
+
+css locators: 
+    1. css locators: page.locator('css=attr').action
+        a. custom classes:
+            i.      :visible        ->      visible elements
+            ii.     :has-text       ->      contains string
+            iii.    :text-is        ->      exact string
+            iv.     :text           ->      substring
+            v.      :has            ->      matches matching descendants of provided selector
+            vi.     :is             ->      matches any of provided selectors
+            vii.    :nth-match      ->      nth-element (0-indexed) among matching selector
+        
+        b. parent element: page.locator('parent tagname', {child attribute}).further child attriibutes
+    
+        c. child elements:
+            i. page.locator('parent tagname desired object tag desire locator')
+            ii. page.locator('parent tagname').locator('child locator').action
+    
+
+
+* .fill -> like, you know, put something inside of it
